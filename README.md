@@ -11,8 +11,10 @@ Current status:
 ## Getting started
 ### iOS
 
+**Verify pod is installed in ios/Podfile, should be something like:**
+
 ```text
-1. Verify pod is installed in ios/Podfile, should be something like
+pod 'RNFairbid', :path => '../node_modules/react-native-fairbid'
 ```
 
 ### Android
