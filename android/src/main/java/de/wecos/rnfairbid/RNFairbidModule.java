@@ -12,6 +12,8 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.fyber.FairBid;
 import com.fyber.fairbid.ads.Banner;
 import com.fyber.fairbid.ads.ImpressionData;
@@ -22,6 +24,9 @@ import com.fyber.fairbid.ads.banner.BannerListener;
 import com.fyber.fairbid.ads.interstitial.InterstitialListener;
 import com.fyber.fairbid.ads.rewarded.RewardedListener;
 import com.fyber.fairbid.user.UserInfo;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RNFairbidModule extends ReactContextBaseJavaModule {
 
@@ -205,5 +210,29 @@ public class RNFairbidModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void showBannerInView(final String placementId,final String info,final Callback callback) {
         callback.invoke((Object)null);
+    }
+
+    @ReactMethod
+    public void gdprConsent(final boolean consentFlag) {
+        UserInfo.setGdprConsent(consentFlag, getCurrentActivity());
+    }
+    @ReactMethod
+    public void gdprConsentData(final @Nullable ReadableMap params) {
+        Map<String, String> consentData = new HashMap<>();
+        if (params != null) {
+            ReadableMapKeySetIterator it = params.keySetIterator();
+
+            while(it.hasNextKey()) {
+                String key = it.nextKey();
+
+                consentData.put(key, params.getString(key));
+            }
+        }
+
+        UserInfo.setGdprConsentData(consentData, getCurrentActivity());
+    }
+    @ReactMethod
+    public void clearGDPRConsent() {
+        UserInfo.clearGdprConsentData(getCurrentActivity());
     }
 }

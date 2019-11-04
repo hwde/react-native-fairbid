@@ -118,6 +118,18 @@ RCT_EXPORT_METHOD(showBannerInView:(NSString *)placementId incentivizedInfo:(NSS
   }
 }
 
+RCT_EXPORT_METHOD(gdprConsent:(BOOL)consentFlag) {
+  [FairBid user].gdprConsent = consentFlag;
+}
+
+RCT_EXPORT_METHOD(gdprConsentData:(NSDictionary *)consentData) {
+  [FairBid user].gdprConsentData = consentData;
+}
+
+RCT_EXPORT_METHOD(clearGDPRConsent) {
+    [[FairBid user] clearGDPRConsent];
+}
+
 - (void)interstitialIsAvailable:(NSString *)placementId {
   [self sendEvent:@"interstitialIsAvailable" body:@{ @"placementId": placementId, }];
 }

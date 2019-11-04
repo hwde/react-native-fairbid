@@ -121,3 +121,15 @@ RNFairbid.showBannerInView(PLACEMENT_ID, "foo bar", () => {
   console.log('RNFairbid.showBannerInView');
 });
 ```
+
+### GDPR
+
+```js
+RNFairbid.gdprConsent(true); // got user consent
+RNFairbid.gdprConsent(false); // user consent not given
+RNFairbid.clearGDPRConsent(); // clear user consent and data
+RNFairbid.gdprConsentData({
+  key_A: 'value A',
+  key_B: 'value_B'
+});
+```
