@@ -106,8 +106,8 @@ RCT_EXPORT_METHOD(showVideoForPlacementID:(NSString *)placementId callback:(RCTR
 
 RCT_EXPORT_METHOD(showBannerInView:(NSString *)placementId incentivizedInfo:(NSString *)info callback:(RCTResponseSenderBlock)callback) {
   FYBBannerOptions *bannerOptions = [[FYBBannerOptions alloc] init];
-  UIViewController *controller = RCTPresentedViewController();
   bannerOptions.placementId = placementId;
+  UIViewController *controller = RCTPresentedViewController();
 
   if (controller != NULL) {
     [FYBBanner showBannerInView:controller.view
