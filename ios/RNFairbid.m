@@ -120,12 +120,12 @@ RCT_EXPORT_METHOD(showBannerInView:(NSString *)placementId reactTag:(nonnull NSN
   }
 }
 
-RCT_EXPORT_METHOD(gdprConsent:(BOOL)consentFlag) {
-  [FairBid user].gdprConsent = consentFlag;
+RCT_EXPORT_METHOD(GDPRConsent:(BOOL)consentFlag) {
+  [FairBid user].GDPRConsent = consentFlag;
 }
 
-RCT_EXPORT_METHOD(gdprConsentData:(NSDictionary *)consentData) {
-  [FairBid user].gdprConsentData = consentData;
+RCT_EXPORT_METHOD(GDPRConsentString:(NSString *)consentString) {
+  [FairBid user].GDPRConsentString = consentString;
 }
 
 RCT_EXPORT_METHOD(clearGDPRConsent) {
