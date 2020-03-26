@@ -15,6 +15,7 @@
 @import WebKit;
 #import <FairBidSDK/FairBid.h>
 #import <React/RCTUtils.h>
+#import <React/RCTUIManager.h>
 
 @interface RNFairbid : RCTEventEmitter <RCTBridgeModule,FYBBannerDelegate,FYBRewardedDelegate,FYBInterstitialDelegate>
 
@@ -104,13 +105,13 @@ RCT_EXPORT_METHOD(showVideoForPlacementID:(NSString *)placementId callback:(RCTR
   }
 }
 
-RCT_EXPORT_METHOD(showBannerInView:(NSString *)placementId incentivizedInfo:(NSString *)info callback:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(showBannerInView:(NSString *)placementId reactTag:(nonnull NSNumber *)reactTag callback:(RCTResponseSenderBlock)callback) {
   FYBBannerOptions *bannerOptions = [[FYBBannerOptions alloc] init];
   bannerOptions.placementId = placementId;
-  UIViewController *controller = RCTPresentedViewController();
+  UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
 
-  if (controller != NULL) {
-    [FYBBanner showBannerInView:controller.view
+  if (view != NULL) {
+    [FYBBanner showBannerInView:view
                        position:FYBBannerAdViewPositionBottom
                         options:bannerOptions];
     callback(@[@true]);
