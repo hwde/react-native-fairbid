@@ -213,11 +213,11 @@ public class RNFairbidModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void gdprConsent(final boolean consentFlag) {
+    public void GDPRCConsent(final boolean consentFlag) {
         UserInfo.setGdprConsent(consentFlag, getCurrentActivity());
     }
     @ReactMethod
-    public void gdprConsentData(final @Nullable ReadableMap params) {
+    public void GDPRCConsentData(final @Nullable ReadableMap params) {
         Map<String, String> consentData = new HashMap<>();
         if (params != null) {
             ReadableMapKeySetIterator it = params.keySetIterator();
