@@ -63,8 +63,8 @@ const showVideoForPlacementID = wrapArg1Method(RNFairbid.showVideoForPlacementID
 
 const showBannerInView = wrapArg2Method(RNFairbid.showBannerInView);
 
-const gdprConsent = RNFairbid.gdprConsent;
-const gdprConsentData = RNFairbid.gdprConsentData;
+const GDPRConsent = RNFairbid.GDPRConsent;
+const GDPRConsentString = RNFairbid.GDPRConsentString;
 const clearGDPRConsent = RNFairbid.clearGDPRConsent;
 
 export default {
@@ -86,7 +86,7 @@ export default {
 
   showBannerInView,
 
-  gdprConsent,
-  gdprConsentData,
+  GDPRConsent,
+  GDPRConsentString,
   clearGDPRConsent
 };
