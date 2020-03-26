@@ -4,9 +4,9 @@ React Native wrapper for the Fyber Fairbid SDK.
 
 Current status:
 
-1. Rewarded Video work for me,
-2. Interstitial: may work, not tested
-3. Banner: will not work, net tested
+1. Rewarded Video
+2. Interstitial
+3. Banner (iOS)
 
 ## Getting started
 ### iOS
@@ -67,8 +67,6 @@ RNFairbid.requestVideoForPlacementID(PLACEMENT_ID);
 
 ### Interstitial
 
-***Not yet tested - Tester and Pull Requests welcome***
-
 ```js
 const PLACEMENT_ID = '456789';
 
@@ -99,10 +97,9 @@ RNFairbid.requestInterstitialForPlacementID(PLACEMENT_ID);
 
 ### Banner
 
-***Does not work yet, banner-options needs to be passed - Tester and Pull Requests welcome***
-
 ```js
 const PLACEMENT_ID = '456789';
+const VIEW_COMPONENT = ReactNative.findNodeHandle(this.myRef.current)
 
 RNFairbid.on('bannerDidLoad', () => {
 	console.log('RNFairbid.bannerDidLoad');
@@ -117,7 +114,7 @@ RNFairbid.on('bannerDidFailToLoad', () => {
 	console.log('RNFairbid.bannerDidFailToLoad');
 });
 
-RNFairbid.showBannerInView(PLACEMENT_ID, "foo bar", () => {
+RNFairbid.showBannerInView(PLACEMENT_ID, VIEW_COMPONENT, () => {
   console.log('RNFairbid.showBannerInView');
 });
 ```
