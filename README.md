@@ -122,11 +122,8 @@ RNFairbid.showBannerInView(PLACEMENT_ID, VIEW_COMPONENT, () => {
 ### GDPR
 
 ```js
-RNFairbid.gdprConsent(true); // got user consent
-RNFairbid.gdprConsent(false); // user consent not given
+RNFairbid.GDPRConsent(true); // got user consent
+RNFairbid.GDPRConsent(false); // user consent not given
 RNFairbid.clearGDPRConsent(); // clear user consent and data
-RNFairbid.gdprConsentData({
-  key_A: 'value A',
-  key_B: 'value_B'
-});
+RNFairbid.GDPRConsentString('BOEFEAyOEFEAyAHABDENAI4AAAB9vABAASA');
 ```
