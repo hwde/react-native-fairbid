@@ -27,6 +27,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.fyber:fairbid-sdk:2.3.0'
+    implementation 'com.fyber:fairbid-sdk:2.7.0'
     implementation 'com.facebook.react:react-native:+'
 }
