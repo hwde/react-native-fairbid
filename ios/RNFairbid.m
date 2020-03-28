@@ -116,25 +116,25 @@ RCT_EXPORT_METHOD(showBannerInView:(NSDictionary *)options callback:(RCTResponse
 
   if (admobBannerSize != NULL) {
     if ([admobBannerSize isEqualToString:@"flexibleWidthPortrait"]) {
-        bannerOptions.admobBannerSize = FYBAdMobBannerSizeFlexibleWidthPortrait;
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeFlexibleWidthPortrait;
     } else if ([admobBannerSize isEqualToString:@"flexibleWidthLandscape"]) {
-        bannerOptions.admobBannerSize = FYBAdMobBannerSizeFlexibleWidthLandscape;
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeFlexibleWidthLandscape;
     } else if ([admobBannerSize isEqualToString:@"banner"]) {
-        bannerOptions.admobBannerSize = FYBAdMobBannerSizeBanner;
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeBanner;
     } else if ([admobBannerSize isEqualToString:@"largeBanner"]) {
-        bannerOptions.admobBannerSize = FYBAdMobBannerSizeLargeBanner;
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeLargeBanner;
     } else if ([admobBannerSize isEqualToString:@"leaderboard"]) {
-        bannerOptions.admobBannerSize = FYBAdMobBannerSizeLeaderboard;
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeLeaderboard;
     } else if ([admobBannerSize isEqualToString:@"fullBanner"]) {
-        bannerOptions.admobBannerSize = FYBAdMobBannerSizeFullBanner;
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeFullBanner;
     }
   }
     
   if (facebookBannerSize != NULL) {
     if ([facebookBannerSize isEqualToString:@"flexibleWidthHeight50"]) {
-        bannerOptions.facebookBannerSize = FYBFacebookBannerSizeFlexibleWidthHeight50;
+      bannerOptions.facebookBannerSize = FYBFacebookBannerSizeFlexibleWidthHeight50;
     } else if ([facebookBannerSize isEqualToString:@"flexibleWidthHeight90"]) {
-        bannerOptions.facebookBannerSize = FYBFacebookBannerSizeFlexibleWidthHeight90;
+      bannerOptions.facebookBannerSize = FYBFacebookBannerSizeFlexibleWidthHeight90;
     }
   }
 
