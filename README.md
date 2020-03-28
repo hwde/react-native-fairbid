@@ -114,7 +114,12 @@ RNFairbid.on('bannerDidFailToLoad', () => {
 	console.log('RNFairbid.bannerDidFailToLoad');
 });
 
-RNFairbid.showBannerInView(PLACEMENT_ID, VIEW_COMPONENT, () => {
+RNFairbid.showBannerInView({
+	placementId: PLACEMENT_ID,
+  view: VIEW_COMPONENT,
+  admobBannerSize: 'flexibleWidthPortrait', // optional
+  facebookBannerSize: 'flexibleWidthHeight50' // optional
+}, () => {
   console.log('RNFairbid.showBannerInView');
 });
 ```
