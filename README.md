@@ -115,7 +115,7 @@ RNFairbid.on('bannerDidFailToLoad', () => {
 });
 
 RNFairbid.showBannerInView({
-	placementId: PLACEMENT_ID,
+  placementId: PLACEMENT_ID,
   view: VIEW_COMPONENT,
   admobBannerSize: 'flexibleWidthPortrait', // optional
   facebookBannerSize: 'flexibleWidthHeight50' // optional
