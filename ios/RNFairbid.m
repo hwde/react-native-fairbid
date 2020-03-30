@@ -105,10 +105,38 @@ RCT_EXPORT_METHOD(showVideoForPlacementID:(NSString *)placementId callback:(RCTR
   }
 }
 
-RCT_EXPORT_METHOD(showBannerInView:(NSString *)placementId reactTag:(nonnull NSNumber *)reactTag callback:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(showBannerInView:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
   FYBBannerOptions *bannerOptions = [[FYBBannerOptions alloc] init];
+  NSString *placementId = [RCTConvert NSString:options[@"placementId"]];
   bannerOptions.placementId = placementId;
+  NSNumber *reactTag = [RCTConvert NSNumber:options[@"view"]];
   UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
+  NSString *admobBannerSize = [RCTConvert NSString:options[@"admobBannerSize"]];
+  NSString *facebookBannerSize = [RCTConvert NSString:options[@"facebookBannerSize"]];
+
+  if (admobBannerSize != NULL) {
+    if ([admobBannerSize isEqualToString:@"flexibleWidthPortrait"]) {
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeFlexibleWidthPortrait;
+    } else if ([admobBannerSize isEqualToString:@"flexibleWidthLandscape"]) {
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeFlexibleWidthLandscape;
+    } else if ([admobBannerSize isEqualToString:@"banner"]) {
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeBanner;
+    } else if ([admobBannerSize isEqualToString:@"largeBanner"]) {
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeLargeBanner;
+    } else if ([admobBannerSize isEqualToString:@"leaderboard"]) {
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeLeaderboard;
+    } else if ([admobBannerSize isEqualToString:@"fullBanner"]) {
+      bannerOptions.admobBannerSize = FYBAdMobBannerSizeFullBanner;
+    }
+  }
+    
+  if (facebookBannerSize != NULL) {
+    if ([facebookBannerSize isEqualToString:@"flexibleWidthHeight50"]) {
+      bannerOptions.facebookBannerSize = FYBFacebookBannerSizeFlexibleWidthHeight50;
+    } else if ([facebookBannerSize isEqualToString:@"flexibleWidthHeight90"]) {
+      bannerOptions.facebookBannerSize = FYBFacebookBannerSizeFlexibleWidthHeight90;
+    }
+  }
 
   if (view != NULL) {
     [FYBBanner showBannerInView:view

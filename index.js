@@ -37,7 +37,7 @@ function removeListener(event,callback) {
 const initWithAppID = RNFairbid.initWithAppID;
 const presentTestSuite = RNFairbid.presentTestSuite;
 
-function wrapArg1Method(method) {
+function wrapArgMethod(method) {
     return (arg, done) => {
         if (!done) {
             done = function() {};
@@ -45,23 +45,16 @@ function wrapArg1Method(method) {
         method(arg, done);
     }
 }
-function wrapArg2Method(method) {
-    return (arg1, arg2, done) => {
-        if (!done) {
-            done = function() {};
-        }
-        method(arg1, arg2, done);
-    }
-}
+
 const requestInterstitialForPlacementID = RNFairbid.requestInterstitialForPlacementID;
-const isInterstitialAvailableForPlacementID = wrapArg1Method(RNFairbid.isInterstitialAvailableForPlacementID);
-const showInterstitialForPlacementID = wrapArg1Method(RNFairbid.showInterstitialForPlacementID);
+const isInterstitialAvailableForPlacementID = wrapArgMethod(RNFairbid.isInterstitialAvailableForPlacementID);
+const showInterstitialForPlacementID = wrapArgMethod(RNFairbid.showInterstitialForPlacementID);
 
 const requestVideoForPlacementID = RNFairbid.requestVideoForPlacementID;
-const isVideoAvailableForPlacementID = wrapArg1Method(RNFairbid.isVideoAvailableForPlacementID);
-const showVideoForPlacementID = wrapArg1Method(RNFairbid.showVideoForPlacementID);
+const isVideoAvailableForPlacementID = wrapArgMethod(RNFairbid.isVideoAvailableForPlacementID);
+const showVideoForPlacementID = wrapArgMethod(RNFairbid.showVideoForPlacementID);
 
-const showBannerInView = wrapArg2Method(RNFairbid.showBannerInView);
+const showBannerInView = wrapArgMethod(RNFairbid.showBannerInView);
 
 const GDPRConsent = RNFairbid.GDPRConsent;
 const GDPRConsentString = RNFairbid.GDPRConsentString;

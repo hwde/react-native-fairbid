@@ -98,8 +98,12 @@ RNFairbid.requestInterstitialForPlacementID(PLACEMENT_ID);
 ### Banner
 
 ```js
-const PLACEMENT_ID = '456789';
-const VIEW_COMPONENT = ReactNative.findNodeHandle(this.myRef.current)
+const OPTIONS = {
+  placementId: '456789',
+  view: ReactNative.findNodeHandle(this.myRef.current),
+  admobBannerSize: 'flexibleWidthPortrait', // optional
+  facebookBannerSize: 'flexibleWidthHeight50' // optional
+}
 
 RNFairbid.on('bannerDidLoad', () => {
 	console.log('RNFairbid.bannerDidLoad');
@@ -114,7 +118,7 @@ RNFairbid.on('bannerDidFailToLoad', () => {
 	console.log('RNFairbid.bannerDidFailToLoad');
 });
 
-RNFairbid.showBannerInView(PLACEMENT_ID, VIEW_COMPONENT, () => {
+RNFairbid.showBannerInView(OPTIONS, () => {
   console.log('RNFairbid.showBannerInView');
 });
 ```
